@@ -75,7 +75,9 @@ class App extends Component {
                             <Profile
                                 artist={this.state.artist}
                             />
-                            <Gallery />
+                            <Gallery 
+                                tracks={this.state.tracks}
+                            />
                         </div>
                         : ''
                 }
