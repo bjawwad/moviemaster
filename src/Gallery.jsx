@@ -2,11 +2,65 @@ import React, { Component } from 'react';
 import './styles/Gallery.css';
 
 class Gallery extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            playingUrl: '',
+            audio: null,
+            playing: false
+        }
+    }
+
+    playAudio(previewUrl) {
+        let audio = new Audio(previewUrl);
+        if (!this.state.playing) {
+            audio.play();
+            this.setState({ playing: true, playingUrl: previewUrl, audio })
+        } else {
+            if (this.state.playingUrl === previewUrl) {
+                this.state.audio.pause();
+                this.setState({ playing: false });
+            } else {
+                this.state.audio.pause();
+                audio.play();
+                this.setState({ playingUrl: previewUrl, playing: true, audio });
+            }
+        }
+    }
+
     render() {
-        console.log('props', this.props)
+        const { tracks } = this.props;
         return (
             <div className="Gallery">
-                Gallery from Gallery
+                {
+                    tracks.map((track, k) => {
+                        console.log('track', track)
+                        const trackImg = track.album.images[0].url;
+                        return (
+                            <div
+                                key={k}
+                                className="Track"
+                                onClick={() => this.playAudio(track.preview_url)}
+                            >
+                                <img
+                                    src={trackImg}
+                                    alt="track"
+                                    className="Track-img"
+                                />
+                                <div className="Track-play">
+                                    <div className="Track-play-inner">
+                                        &#9654;
+                                    </div>
+                                </div>
+
+                                <p className="Track-text">
+                                    {track.name}
+                                </p>
+                            </div>
+                        )
+                    })
+                }
             </div>
         )
     }

@@ -70,7 +70,7 @@ class App extends Component {
                     </InputGroup>
                 </FormGroup>
                 {
-                    this.state.artist !== null
+                    this.state.artist !== null && this.state.tracks !== null
                         ? <div>
                             <Profile
                                 artist={this.state.artist}
