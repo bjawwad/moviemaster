@@ -36,13 +36,13 @@
 .Track-play-inner{
     position: absolute;
     text-align: center;
-    font-size: 40px;
+    font-size: 26px;
     background-color: black;
     border-radius: 30px;
     width: 60px;
     height: 60px;
     color: white;
-    padding-top: 3px;
+    padding-top: 10px;
     margin-left: 80px;
     margin-top: 80px;
     opacity: 0;

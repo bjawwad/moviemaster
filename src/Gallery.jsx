@@ -35,7 +35,6 @@ class Gallery extends Component {
             <div className="Gallery">
                 {
                     tracks.map((track, k) => {
-                        console.log('track', track)
                         const trackImg = track.album.images[0].url;
                         return (
                             <div
@@ -50,7 +49,11 @@ class Gallery extends Component {
                                 />
                                 <div className="Track-play">
                                     <div className="Track-play-inner">
-                                        &#9654;
+                                        {
+                                            this.state.playingUrl === track.preview_url
+                                            ? <span>||</span>
+                                            : <span> &#9654; </span>
+                                        }
                                     </div>
                                 </div>
 
