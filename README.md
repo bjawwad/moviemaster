@@ -7,3 +7,7 @@ This application is made for learning and fun using "create-react-app" npm plugi
 
 Run "npm install" to install the node dependencies.
 Run "npm start" to run the project at "http://localhost:3000".
+
+# Demo
+
+Demo music master can be seen on "https://bjawwad.github.io/musicmaster/"
